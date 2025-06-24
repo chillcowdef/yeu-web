@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bạn có yêu mình không?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 60px;
+      background-color: #ffeef0;
+    }
+
+    #reactionImg {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #e91e63;
+    }
+
+    .btn {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #ff4081;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ảnh phản ứng -->
+  <img id="reactionImg" src="img1.png" alt="reaction">
+
+  <!-- Câu hỏi -->
+  <h1>Bạn có yêu mình không?</h1>
+
+  <!-- Nút -->
+  <button id="yesBtn" class="btn">Có 🥰</button>
+  <button id="noBtn" class="btn">Không 😢</button>
+
+  <!-- Câu trả lời -->
+  <div id="result">Ỏ mình biết mà 💖</div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const result = document.getElementById("result");
+    const img = document.getElementById("reactionImg");
+
+    const imgList = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png"];
+    let noClickCount = 0;
+
+    yesBtn.addEventListener("click", () => {
+      result.style.display = "block";
+    });
+
+    noBtn.addEventListener("click", () => {
+      if (noClickCount < imgList.length - 1) {
+        noClickCount++;
+        img.src = imgList[noClickCount];
+      }
+    });
+  </script>
+</body>
+</html>
